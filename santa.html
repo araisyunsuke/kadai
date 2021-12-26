@@ -18,9 +18,13 @@
     </div>
 
      <div class="main">
+       <div class="otehons">
+         <img src="santa1.png" id="gazou" class= "otehon">
+         <input type="textarea"  value="裏面を上にしてください！" class= "how-to">
+       </div>
        <div class="you">
          <div>
-           <p>あなたの作製物はここに表示されます</p>
+           <p>上の手順に従って折り紙を制作してください</p>
            <p>作業開始ボタンをクリックしたあと，webカメラの使用許可をしていただきます．</<p></p>>
 
          </div>
@@ -33,13 +37,19 @@
              // More API functions here:
              // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
+
+
+
+             var gg = 0;
+
              // the link to your model provided by Teachable Machine export panel
-             const URL = "./my_model/";
+             const URL = "https://teachablemachine.withgoogle.com/models/1Dxz-gRZR/";
 
              let model, webcam, labelContainer, maxPredictions;
 
              // Load the image model and setup the webcam
              async function init() {
+                 gg = 1;
                  const modelURL = URL + "model.json";
                  const metadataURL = URL + "metadata.json";
 
@@ -71,25 +81,23 @@
                  window.requestAnimationFrame(loop);
              }
 
+             var tejun = new Array("bigsanta.png")
+
              // run the webcam image through the image model
              async function predict() {
                  // predict can take in an image, video or canvas html element
                  const prediction = await model.predict(webcam.canvas);
-                 for (let i = 0; i < maxPredictions; i++) {
-                     const classPrediction =
-                         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                     labelContainer.childNodes[i].innerHTML = classPrediction;
+                 if (prediction[0].probability.toFixed(2) > 0.60){
+                   document.getElementById("gazou").src=tejun[0];
                  }
+
              }
+
+
          </script>
 
        </div>
-       <div class="otehon">
-         <img src="bigsanta.png">
-       </div>
-       <div class="teach">
-         <input type="textarea"  value="完成図はこちら">
-       </div>
+
 
      </div>
  </body>

@@ -86,10 +86,10 @@
              async function predict() {
                  // predict can take in an image, video or canvas html element
                  const prediction = await model.predict(webcam.canvas);
-                 if (prediction[0].probability.toFixed(2) > 0.60 && akeome == 0){
+                 if (prediction[0].probability.toFixed(2) > 0.60 ){
                    document.getElementById("gazou").src=tejun[0];
                    document.getElementById("setumei").value="三角形に折ってください";
-                   if (prediction[1].probability.toFixed(2) > 0.60 && akeome == 1){
+                   if (prediction[1].probability.toFixed(2) > 0.60){
                      document.getElementById("gazou").src=tejun[1];
                      document.getElementById("setumei").value="開いてください";
 

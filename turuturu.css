@@ -1,0 +1,27 @@
+li {
+  list-style: none;
+}
+
+.header {
+  background-color: #00ff7f;
+  color: #fff;
+  height: 200px;
+}
+.header-logo {
+
+  font-size: 36px;
+  padding: 20px  20px  0px 20px;
+}
+.header-list li {
+  float: left;
+  padding: 33px 20px;
+  font-size :20px;
+}
+
+.otehon{
+  float: left;
+}
+.how-to{
+  height: 200px;
+  width: 400px;
+}

@@ -20,7 +20,7 @@
      <div class="main">
        <div class="otehons">
          <img src="santa1.png" id="gazou" class= "otehon">
-         <input type="textarea"  value="裏面を上にしてください！" class= "how-to">
+         <input type="textarea"  value="裏面を上にしてください！" id = "setumei" class= "how-to">
        </div>
        <div class="you">
          <div>
@@ -89,6 +89,7 @@
                  const prediction = await model.predict(webcam.canvas);
                  if (prediction[0].probability.toFixed(2) > 0.60){
                    document.getElementById("gazou").src=tejun[0];
+                   document.getElementById("setumei").value="三角形に折ってください"
                  }
 
              }

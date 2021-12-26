@@ -86,46 +86,46 @@
              async function predict() {
                  // predict can take in an image, video or canvas html element
                  const prediction = await model.predict(webcam.canvas);
-                 let akeome = 0;
                  if (prediction[0].probability.toFixed(2) > 0.60 && akeome == 0){
                    document.getElementById("gazou").src=tejun[0];
                    document.getElementById("setumei").value="三角形に折ってください";
-                   akeome = 1;
+                   if (prediction[1].probability.toFixed(2) > 0.60 && akeome == 1){
+                     document.getElementById("gazou").src=tejun[1];
+                     document.getElementById("setumei").value="開いてください";
+
+                   }
+
                  }
-                 if (prediction[1].probability.toFixed(2) > 0.60 && akeome == 1){
-                   document.getElementById("gazou").src=tejun[1];
-                   document.getElementById("setumei").value="開いてください";
-                   akeome= 2;
-                 }
+
                  if (prediction[0].probability.toFixed(2) > 0.60 && akeome == 2){
                   document.getElementById("gazou").src=tejun[2];
                   document.getElementById("setumei").value="作られた折り目に向かって両側からおってください";
-                  akeome= 3;
+
                  }
                  if (prediction[2].probability.toFixed(2) > 0.60 && akeome == 3){
                    document.getElementById("gazou").src=tejun[3];
                    document.getElementById("setumei").value="細くなったほうを下にして，半分に折ってください";
-                   akeome= 4;
+
                  }
                  if (prediction[3].probability.toFixed(2) > 0.60 && akeome == 4){
                    document.getElementById("gazou").src=tejun[4];
                    document.getElementById("setumei").value="裏返して，大きい三角形を手前側におってください";
-                   akeome= 5;
+
                  }
                  if (prediction[4].probability.toFixed(2) > 0.60 && akeome == 5){
                    document.getElementById("gazou").src=tejun[5];
                    document.getElementById("setumei").value="裏返して，両側のはみ出ている三角形を手前側におり，本体部分の先端を右に折り曲げてください";
-                   akeome= 6;
+
                  }
                  if (prediction[5].probability.toFixed(2) > 0.60 && akeome == 6){
                    document.getElementById("gazou").src=tejun[6];
                    document.getElementById("setumei").value="裏返してください";
-                   akeome= 7;
+
                  }
                  if (prediction[6].probability.toFixed(2) > 0.60 && akeome == 7){
                    document.getElementById("gazou").src=tejun[0];
                    document.getElementById("setumei").value="完成です!おめでとうございます！もう一度作りたい場合はリロードしてください．";
-                  akeome= 8;
+
                  }
             }
 

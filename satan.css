@@ -17,6 +17,11 @@ li {
   padding: 33px 20px;
   font-size :20px;
 }
-.you{
+
+.otehon{
   float: left;
+}
+.how-to{
+  height: 200px;
+  width: 400px;
 }

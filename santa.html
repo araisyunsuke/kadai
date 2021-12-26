@@ -82,15 +82,16 @@
 
              var tejun = new Array("santa1.GIF","santa2.GIF","santa3.GIF","santa4.GIF","santa5.GIF","santa6.GIF","santa7.GIF")
 
-
+             let akeome = 0;
              // run the webcam image through the image model
              async function predict() {
                  // predict can take in an image, video or canvas html element
                  const prediction = await model.predict(webcam.canvas);
 
-                 if (prediction[0].probability.toFixed(2) > 0.60 ){
+                 if (prediction[0].probability.toFixed(2) > 0.60 && akeome == 0){
                    document.getElementById("gazou").src=tejun[0];
                    document.getElementById("setumei").value="三角形に折ってください";
+                   akeome=1;
 
                  }else if (prediction[1].probability.toFixed(2) > 0.60 && akeome == 1){
                    document.getElementById("gazou").src=tejun[1];
